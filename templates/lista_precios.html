@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% block title %}
+    Agregar lista
+{% endblock %}
+{% block content %}
+<body>
+    <h1>Lista de Precios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo de Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <div >
+            {% for precio in precios %}
+            <tr>
+                <td>{{ precio.tipo_producto }}</td>
+                <td>{{ precio.precio }}</td>
+                <td>{{ precio.fecha_hora }}</td>
+            </tr>
+            {% endfor %}
+        </div>
+    </table>
+</body>
+{% endblock %}

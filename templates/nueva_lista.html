@@ -1,0 +1,71 @@
+{% extends 'home.html' %}
+{% block title %}
+    Agregar lista
+{% endblock %}
+{% block content %}
+<body>
+    <h1>Formulario para Agregar Productos</h1>
+    <form action="/agregar_producto" method="POST">
+        {{form.hidden_tag()}}
+    <table class="tabla">
+        <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+        </tr>
+    
+    </table>    
+    <div >
+            <imput class="forma">
+            {{ form.tipo_producto.label(class_="forma") }}
+            {{ form.tipo_producto(class_="forma") }}
+            </imput>
+            <imput class="forma">
+            {{ form.precio.label }}
+            {{ form.precio(class_="forma") }}
+            </imput>
+           
+    </div>
+
+    <div>
+        {{form.submit(class_="btnAgregar") }}
+    </div>
+    
+</form>
+<div>
+    <h1>Lista de Precios</h1>
+    <table id="caja">
+        <thead>
+            <tr>
+                <th>Tipo de Producto</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <div >
+            {% for precio in precios %}
+            <tr>
+                <td>{{ precio.tipo_producto }}</td>
+                <td>{{ precio.precio }}</td>
+            </tr>
+            {% endfor %}
+        </div>
+    </table>
+</table>
+<button id="" onclick="descargarTabla()">Descargar Imagen</button>
+
+    <script>
+        function descargarTabla() {
+            var tabla = document.getElementById('caja');
+
+            // Usa html2canvas para capturar la tabla como imagen
+            html2canvas(tabla).then(function(canvas) {
+                // Crea un enlace <a> para descargar la imagen
+                var enlace = document.createElement('a');
+                enlace.href = canvas.toDataURL('image/png'); // Imagen en formato PNG
+                enlace.download = 'ListaDePrecio.png'; // Nombre del archivo a descargar
+                enlace.click();
+            });
+        }
+    </script>
+</div>
+</body>
+{% endblock %}

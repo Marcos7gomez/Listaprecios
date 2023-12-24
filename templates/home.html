@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>{% block title %}Home{% endblock %}</title>    <link rel="stylesheet" href="/static/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia&family=Mina:wght@700&family=Oswald:wght@200;300&family=PT+Serif:ital,wght@1,700&family=Roboto:ital,wght@0,100;0,400;1,100&family=Rubik+Bubbles&display=swap" rel="stylesheet"></head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+
+<body class="home">
+    <div class="header">
+        <p class="titulo">Creador de lista de precios</p>
+    </div>
+    
+    </ul>
+           
+
+    </div>
+     
+    <a href="{{url_for('agregar_producto')}}" class="bn5">Agregar producto</a>
+    <a href="{{url_for('lista_precios')}}" class="bn5">Ver lista</a>
+        {% block content %}{% endblock %}
+    
+
+</body>
+</html>
